@@ -9,6 +9,5 @@ class ParserTest(unittest.TestCase):
 
 
     def testParse(self):
-        print self.path + '/sample/sample1.json'
         self.generator.generate_from_json(self.path + '/sample/sample1.json')
 
