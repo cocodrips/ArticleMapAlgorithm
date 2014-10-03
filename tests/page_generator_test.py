@@ -8,9 +8,9 @@ class ParserTest(unittest.TestCase):
         self.generator = page_generator.PageGenerator()
 
     def testParse(self):
-        pages = self.generator.generate_from_json(self.path + '/sample/sample1.json')
-        self.assertEqual(pages[0][1].priority, 2)
+        page_set = self.generator.generate_from_json(self.path + '/sample/sample1.json')
+        self.assertEqual(len(page_set[1][2]), 2)
 
-        pages = self.generator.generate_from_json(self.path + '/sample/sample2.json')
-        self.assertEqual(len(pages[1][2]), 2)
 
+if __name__ == "__main__":
+    unittest.main()

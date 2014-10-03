@@ -20,6 +20,36 @@
                     "type": "text"
                 }
             ]
+        },
+        {
+            "name": "g2",
+            "data": [
+                {
+                    "name": "9",
+                    "data": 9,
+                    "type": "image"
+                },
+                {
+                    "name": "7",
+                    "data": 7,
+                    "type": "text"
+                },
+                {
+                    "name": "g3",
+                    "data": [
+                        {
+                            "name": "3",
+                            "data": 3,
+                            "type": "text"
+                        },
+                        {
+                            "name": "2",
+                            "data": 2,
+                            "type": "text"
+                        }
+                    ]
+                }
+            ]
         }
     ]
 }
