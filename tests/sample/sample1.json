@@ -1,0 +1,25 @@
+{
+    "name": "all",
+    "data": [
+        {
+            "name": "g1",
+            "data": [
+                {
+                    "name": "10",
+                    "data": 10,
+                    "type": "image"
+                },
+                {
+                    "name": "2",
+                    "data": 2,
+                    "type": "text"
+                },
+                {
+                    "name": "1",
+                    "data": 1,
+                    "type": "text"
+                }
+            ]
+        }
+    ]
+}
