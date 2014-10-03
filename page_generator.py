@@ -3,11 +3,9 @@ import model
 import types
 
 class PageGenerator():
-
     def generate_from_json(self, filename):
         dictionary = self.json_to_dict(filename)
-        print dictionary
-        print self.dict_to_page(dictionary)
+        return self.dict_to_page(dictionary)
 
     def dict_to_page(self, dictionary):
         if type(dictionary.get('data')) != types.ListType:

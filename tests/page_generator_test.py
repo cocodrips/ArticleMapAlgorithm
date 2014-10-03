@@ -7,7 +7,10 @@ class ParserTest(unittest.TestCase):
         self.path = os.path.dirname(os.path.abspath(__file__))
         self.generator = page_generator.PageGenerator()
 
-
     def testParse(self):
-        self.generator.generate_from_json(self.path + '/sample/sample1.json')
+        pages = self.generator.generate_from_json(self.path + '/sample/sample1.json')
+        self.assertEqual(pages[0][1].priority, 2)
+
+        pages = self.generator.generate_from_json(self.path + '/sample/sample2.json')
+        self.assertEqual(len(pages[1][2]), 2)
 
