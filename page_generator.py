@@ -3,19 +3,18 @@ import model
 import types
 
 class PageGenerator():
-    def generate_from_json(self, filename):
+    def generate_from_jsonfile(self, filename):
         dictionary = self.json_to_dict(filename)
         return self.dict_to_page(dictionary)
 
     def dict_to_page(self, dictionary):
-        if type(dictionary.get('data')) != types.ListType:
-            return model.Page(dictionary.get('data'), dictionary.get('type'), dictionary.get('name'))
+        if dictionary.get('size'):
+            return model.Page(dictionary.get('size'), dictionary.get('type'), dictionary.get('name'))
 
-        else:
-            pages = []
-            for data in dictionary.get('data'):
-                pages.append(self.dict_to_page(data))
-            return pages
+        pages = []
+        for data in dictionary.get('children'):
+            pages.append(self.dict_to_page(data))
+        return pages
 
     def json_to_dict(self, filename):
         with open(filename, 'r') as f:

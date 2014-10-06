@@ -1,50 +1,50 @@
 {
     "name": "all",
-    "data": [
+    "children": [
         {
             "name": "g1",
-            "data": [
+            "children": [
                 {
                     "name": "10",
-                    "data": 10,
+                    "size": 10,
                     "type": "image"
                 },
                 {
                     "name": "2",
-                    "data": 2,
+                    "size": 2,
                     "type": "text"
                 },
                 {
                     "name": "1",
-                    "data": 1,
+                    "size": 1,
                     "type": "text"
                 }
             ]
         },
         {
             "name": "g2",
-            "data": [
+            "children": [
                 {
                     "name": "9",
-                    "data": 9,
+                    "size": 9,
                     "type": "image"
                 },
                 {
                     "name": "7",
-                    "data": 7,
+                    "size": 7,
                     "type": "text"
                 },
                 {
                     "name": "g3",
-                    "data": [
+                    "children": [
                         {
                             "name": "3",
-                            "data": 3,
+                            "size": 3,
                             "type": "text"
                         },
                         {
                             "name": "2",
-                            "data": 2,
+                            "size": 2,
                             "type": "text"
                         }
                     ]

@@ -9,7 +9,7 @@ def is_group(page_set):
 def priority_sum(page_sets):
     """
     Return:
-      int: Sum of priority of whole of sets.
+      (int)  Sum of priority of whole of sets.
     """
     if not is_group(page_sets):
         return page_sets.priority
@@ -23,6 +23,10 @@ def num(page_sets):
 
 
 def get_top_1(page_sets):
+    """
+    Return:
+      (Page)  Get page having highest average of priority.
+    """
     if not is_group(page_sets):
         return page_sets
 
