@@ -12,7 +12,7 @@ class ParserTest(unittest.TestCase):
         self.page_set = self.generator.generate_from_jsonfile(self.path + '/sample/sample1.json')
 
     def testPrioritySum(self):
-        target = utils.priority_sum(self.page_set)
+        target = utils.sum(self.page_set)
         self.assertEqual(target, 34)
 
     def testIsGroup(self):
@@ -21,17 +21,16 @@ class ParserTest(unittest.TestCase):
 
     def testNum(self):
         target = utils.num(self.page_set)
-        print target
         self.assertEqual(target, 7)
 
     def testGetMax(self):
-        target = utils.get_max(self.page_set)
+        target = utils.max(self.page_set)
         self.assertEqual(target[0].priority, 7)
 
     def testSortAll(self):
-        utils.sort_all(self.page_set)
+        utils.sort(self.page_set)
         self.assertEqual(self.page_set[0][0].priority, 1)
-        utils.sort_all(self.page_set, reverse=True)
+        utils.sort(self.page_set, reverse=True)
         self.assertEqual(self.page_set[0][0].priority, 9)
 
 
