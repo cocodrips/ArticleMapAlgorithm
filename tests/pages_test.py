@@ -23,9 +23,9 @@ class ParserTest(unittest.TestCase):
         target = pages.num(self.page_set)
         self.assertEqual(target, 7)
 
-    def testGetTop1(self):
-        target = pages.get_top_1(self.page_set)
-        self.assertEqual(target[0].priority, 10)
+    def testGetMax(self):
+        target = pages.get_max(self.page_set)
+        self.assertEqual(target[0].priority, 7)
 
     def testSortAll(self):
         pages.sort_all(self.page_set)
