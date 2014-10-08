@@ -1,0 +1,25 @@
+{
+    "name": "all",
+    "children": [
+        {
+            "name": "g1",
+            "children": [
+                {
+                    "name": "10",
+                    "size": 10,
+                    "type": "image"
+                },
+                {
+                    "name": "9",
+                    "size": 9,
+                    "type": "text"
+                },
+                {
+                    "name": "8",
+                    "size": 8,
+                    "type": "text"
+                }
+            ]
+        }
+    ]
+}

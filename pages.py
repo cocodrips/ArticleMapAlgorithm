@@ -41,3 +41,23 @@ def get_top_1(page_sets):
             top = page_set
     return top
 
+
+def sort_all(page_sets, reverse=False):
+    """
+    Sort all pages by priority.
+
+    Return:
+      None
+    """
+    page_sets.sort(key=lambda p:priority_sum(p), reverse=reverse)
+
+    for page_set in page_sets:
+        if is_group(page_set):
+            sort_all(page_set, reverse=reverse)
+
+def new_sets(page_sets, target):
+    """
+    Create list without target.
+    Objects are not copied.
+    """
+    pass

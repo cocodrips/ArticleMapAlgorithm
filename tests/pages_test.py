@@ -27,6 +27,12 @@ class ParserTest(unittest.TestCase):
         target = pages.get_top_1(self.page_set)
         self.assertEqual(target[0].priority, 10)
 
+    def testSortAll(self):
+        pages.sort_all(self.page_set)
+        self.assertEqual(self.page_set[0][0].priority, 1)
+        pages.sort_all(self.page_set, reverse=True)
+        self.assertEqual(self.page_set[0][0].priority, 9)
+
 
 if __name__ == "__main__":
     unittest.main()

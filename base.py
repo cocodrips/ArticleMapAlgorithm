@@ -8,3 +8,6 @@ class Base():
 
     def layout(self):
         pass
+
+    def new_sets(self, page_sets, target):
+        pass
