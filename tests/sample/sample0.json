@@ -1,0 +1,51 @@
+{
+    "name": "all",
+    "children": [
+
+        {
+            "name": "45",
+            "size": 45,
+            "type": "image"
+        },
+        {
+            "name": "32",
+            "size": 32,
+            "type": "text"
+        },
+        {
+            "name": "30",
+            "size": 30,
+            "type": "text"
+        },
+        {
+            "name": "20",
+            "size": 20,
+            "type": "text"
+        },
+        {
+            "name": "11",
+            "size": 11,
+            "type": "text"
+        },
+        {
+            "name": "10",
+            "size": 10,
+            "type": "text"
+        },
+        {
+            "name": "5",
+            "size": 5,
+            "type": "text"
+        },
+        {
+            "name": "2",
+            "size": 2,
+            "type": "text"
+        },
+        {
+            "name": "1",
+            "size": 1,
+            "type": "text"
+        }
+    ]
+}
