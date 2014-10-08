@@ -10,7 +10,7 @@ class DisplayTest(unittest.TestCase):
         layout = GreedyLayout(filepath, 1000, 800)
         self.display = Display(layout)
 
-    def testShow(self):
+    def _testShow(self):
         self.display.show()
 
 

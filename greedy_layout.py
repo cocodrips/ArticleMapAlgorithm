@@ -1,6 +1,5 @@
 from base import Base
-
-import pages
+from page_utils import PageUtils
 
 
 class GreedyLayout(Base):

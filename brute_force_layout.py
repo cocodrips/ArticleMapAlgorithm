@@ -1,6 +1,6 @@
 from base import Base
+from page_utils import PageUtils
 import itertools
-import pages
 
 class BruteForceLayout(Base):
     def layout(self, rect, page_set, is_grouping=False):

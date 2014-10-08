@@ -1,5 +1,5 @@
 from Tkinter import Canvas, Tk
-import pages
+from page_utils import PageUtils
 
 
 class Display():
@@ -15,7 +15,7 @@ class Display():
         root.mainloop()
 
     def draw_page_sets(self, canvas, page_sets):
-        if not pages.is_group(page_sets):
+        if not PageUtils.is_group(page_sets):
             self.draw_rectangle(canvas, page_sets)
         else:
             for page_set in page_sets:

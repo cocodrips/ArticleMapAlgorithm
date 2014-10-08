@@ -8,12 +8,6 @@ class BruteForceTest(unittest.TestCase):
         self.brute_force_layout = BruteForceLayout(self.path + '/sample/sample3.json')
 
 
-    def testLayout(self):
-        self.brute_force_layout.layout()
-
-    def testCombination(self):
-        self.brute_force_layout.combination(self.brute_force_layout.page_set)
-
 
 if __name__ == "__main__":
     unittest.main()
