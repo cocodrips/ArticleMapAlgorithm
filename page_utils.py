@@ -47,11 +47,8 @@ class PageUtils(object):
         for page_set in page_sets:
             if cls.is_group(page_set):
                 cls.sort(page_set, reverse=reverse)
-
     @classmethod
-    def new_sets(cls, page_sets, target):
-        """
-        Create list without target.
-        Objects are not copied.
-        """
-        pass
+    def new_sets(cls, l, target):
+        return l if not cls.is_group(l) else [cls.new_sets(i, target) for i in l if i != target]
+
+

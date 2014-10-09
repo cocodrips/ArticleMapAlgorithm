@@ -5,13 +5,13 @@ import page_generator
 import os
 
 
-class ParserTest(unittest.TestCase):
+class PageUtilsTest(unittest.TestCase):
     def setUp(self):
         self.path = os.path.dirname(os.path.abspath(__file__))
         self.generator = page_generator.PageGenerator()
         self.page_set = self.generator.generate_from_jsonfile(self.path + '/sample/sample1.json')
 
-    def testPrioritySum(self):
+    def testSum(self):
         target = utils.sum(self.page_set)
         self.assertEqual(target, 34)
 
@@ -23,15 +23,25 @@ class ParserTest(unittest.TestCase):
         target = utils.num(self.page_set)
         self.assertEqual(target, 7)
 
-    def testGetMax(self):
+    def testMax(self):
         target = utils.max(self.page_set)
         self.assertEqual(target[0].priority, 7)
 
-    def testSortAll(self):
+    def testSort(self):
         utils.sort(self.page_set)
         self.assertEqual(self.page_set[0][0].priority, 1)
         utils.sort(self.page_set, reverse=True)
         self.assertEqual(self.page_set[0][0].priority, 9)
+
+    def testNewSets(self):
+        new_sets = utils.new_sets(self.page_set, self.page_set[0][0])
+        target = utils.num(new_sets)
+
+        self.assertEqual(target, 6)
+        self.assertEqual(utils.num(self.page_set), 7)
+
+        new_sets[0][0].priority = 100
+        self.assertEqual(self.page_set[0][1].priority, 100)
 
 
 if __name__ == "__main__":
