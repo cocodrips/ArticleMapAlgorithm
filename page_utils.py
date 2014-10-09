@@ -51,4 +51,9 @@ class PageUtils(object):
     def new_sets(cls, l, target):
         return l if not cls.is_group(l) else [cls.new_sets(i, target) for i in l if i != target]
 
+    @classmethod
+    def ideal_sum(cls, page_sets):
+        if not cls.is_group(page_sets):
+            return page_sets.ideal_area
+        return sum([cls.sum(page_set) for page_set in page_sets])
 
