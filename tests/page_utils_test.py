@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from page_utils import PageUtils as utils
+from model.rect import Rect
 import unittest
 import page_generator
 import os
@@ -36,7 +37,7 @@ class PageUtilsTest(unittest.TestCase):
         self.assertEqual(self.page_set[0][0].priority, 9)
 
         self.page_set[1][2].priority = 100
-        utils.sort(self.page_set, reverse=True, key=lambda p: utils.sum(p) / utils.num(p))
+        utils.sort(self.page_set, reverse=True, key=lambda p: utils.avg(p))
         self.assertEqual(self.page_set[0][0].priority, 100)
 
     def testNewSets(self):
@@ -58,6 +59,13 @@ class PageUtilsTest(unittest.TestCase):
     def testGrouping(self):
         target = utils.grouping(self.pure_page_set)
         self.assertEqual(target[1][1].priority, 4)
+
+    def testGetOptimumSet(self):
+        for page in self.pure_page_set:
+            page.ideal_area = pow(page.priority * 100, 2)
+
+        target = utils.get_optimum_set(self.pure_page_set, Rect(0, 0, 500, 300))
+        self.assertEqual(target[0].priority, 4)
 
 
 if __name__ == "__main__":

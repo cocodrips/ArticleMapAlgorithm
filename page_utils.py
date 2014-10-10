@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from model.rect_type import rect_types
+import itertools
 import math
 import types
 
@@ -24,6 +25,14 @@ class PageUtils(object):
         if not cls.is_group(page_sets):
             return 1
         return sum(cls.num(page_set) for page_set in page_sets)
+
+    @classmethod
+    def avg(cls, page_sets):
+        """
+        Return:
+          (int)  Sum of priority of whole of sets.
+        """
+        return cls.sum(page_sets) // cls.num(page_sets)
 
     @classmethod
     def max(cls, page_sets):
@@ -85,6 +94,29 @@ class PageUtils(object):
                 groups.append(group)
 
         return groups
+
+    @classmethod
+    def get_optimum_set(cls, page_sets, rect):
+        # TODO:Refactoring
+
+        s = rect.width * rect.height
+        match = 0
+        optimum_set = None
+
+        for page_set in page_sets:
+            area_sum = PageUtils.ideal_sum(page_set)
+            if not optimum_set or abs(s - area_sum) < abs(s - match):
+                optimum_set = [page_set]
+                match = area_sum
+
+        for a, b in itertools.combinations(page_sets, 2):
+            area_sum = PageUtils.ideal_sum(a) + PageUtils.ideal_sum(b)
+
+            if abs(s - area_sum) < abs(s - match):
+                optimum_set = [a, b]
+                match = area_sum
+
+        return optimum_set
 
 
 
