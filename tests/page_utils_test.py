@@ -10,7 +10,7 @@ class PageUtilsTest(unittest.TestCase):
         self.path = os.path.dirname(os.path.abspath(__file__))
         self.generator = page_generator.PageGenerator()
         self.page_set = self.generator.generate_from_jsonfile(self.path + '/sample/sample1.json')
-        self.pure_page_set = self.generator.generate_from_jsonfile(self.path + '/sample/sample2.json')
+        self.pure_page_set = self.generator.generate_from_jsonfile(self.path + '/sample/pure_sample0.json')
 
 
     def testSum(self):
@@ -35,6 +35,10 @@ class PageUtilsTest(unittest.TestCase):
         utils.sort(self.page_set, reverse=True)
         self.assertEqual(self.page_set[0][0].priority, 9)
 
+        self.page_set[1][2].priority = 100
+        utils.sort(self.page_set, reverse=True, key=lambda p: utils.sum(p) / utils.num(p))
+        self.assertEqual(self.page_set[0][0].priority, 100)
+
     def testNewSets(self):
         new_sets = utils.new_sets(self.page_set, self.page_set[0][0])
         target = utils.num(new_sets)
@@ -52,11 +56,8 @@ class PageUtilsTest(unittest.TestCase):
         self.assertEqual(target, 223)
 
     def testGrouping(self):
-        target =utils.grouping(self.pure_page_set)
+        target = utils.grouping(self.pure_page_set)
         self.assertEqual(target[1][1].priority, 4)
-
-
-
 
 
 if __name__ == "__main__":

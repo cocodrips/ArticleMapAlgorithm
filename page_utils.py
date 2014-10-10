@@ -3,6 +3,7 @@ from model.rect_type import rect_types
 import math
 import types
 
+
 class PageUtils(object):
     @classmethod
     def is_group(cls, page_set):
@@ -36,18 +37,22 @@ class PageUtils(object):
         return max(page_sets, key=lambda p: float(cls.sum(p)) / cls.num(p))
 
     @classmethod
-    def sort(cls, page_sets, reverse=False):
+    def sort(cls, page_sets, reverse=False, key=None):
         """
         Sort all pages by priority.
 
         Return:
           None
         """
-        page_sets.sort(key=lambda p: cls.sum(p), reverse=reverse)
+        if not key:
+            key = lambda p: cls.sum(p)
+        page_sets.sort(key=key,
+                       reverse=reverse)
 
         for page_set in page_sets:
             if cls.is_group(page_set):
-                cls.sort(page_set, reverse=reverse)
+                cls.sort(page_set, reverse=reverse, key=key)
+
     @classmethod
     def new_sets(cls, l, target):
         return l if not cls.is_group(l) else [cls.new_sets(i, target) for i in l if i != target]
@@ -61,7 +66,7 @@ class PageUtils(object):
     @classmethod
     def grouping(cls, page_sets, range=1.4):
         """
-        Grouping only a list of page_sets 
+        Grouping only aa  list of page_sets
         """
         groups = []
 
