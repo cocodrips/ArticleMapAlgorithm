@@ -43,6 +43,15 @@ class PageUtilsTest(unittest.TestCase):
         new_sets[0][0].priority = 100
         self.assertEqual(self.page_set[0][1].priority, 100)
 
+    def testIdealSum(self):
+        self.page_set[0][0].ideal_area = 100
+        self.page_set[0][1].ideal_area = 123
+        target = utils.ideal_sum(self.page_set)
+        self.assertEqual(target, 223)
+
+
+
+
 
 if __name__ == "__main__":
     unittest.main()

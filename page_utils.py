@@ -55,5 +55,6 @@ class PageUtils(object):
     def ideal_sum(cls, page_sets):
         if not cls.is_group(page_sets):
             return page_sets.ideal_area
-        return sum([cls.sum(page_set) for page_set in page_sets])
+        return sum([cls.ideal_sum(page_set) for page_set in page_sets])
+
 
