@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
+from model.rect_type import rect_types
+import math
 import types
-
 
 class PageUtils(object):
     @classmethod
@@ -56,5 +57,29 @@ class PageUtils(object):
         if not cls.is_group(page_sets):
             return page_sets.ideal_area
         return sum([cls.ideal_sum(page_set) for page_set in page_sets])
+
+    @classmethod
+    def grouping(cls, page_sets, range=1.4):
+        """
+        Grouping only a list of page_sets 
+        """
+        groups = []
+
+        for rect_type in rect_types:
+            target_sets = [page_set for page_set in page_sets if page_set.type == rect_type]
+            PageUtils.sort(target_sets)
+
+            while target_sets:
+                base = target_sets.pop(0)
+                group = [base]
+
+                if target_sets and \
+                        target_sets[0].priority <= int(math.ceil(base.priority * range)):
+                    pair = target_sets.pop(0)
+                    group.append(pair)
+                groups.append(group)
+
+        return groups
+
 
 
