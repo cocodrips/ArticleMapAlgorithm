@@ -41,7 +41,7 @@ class GreedyLayout(Base):
             self._arrange_top_left(page_sets, rect)
 
     def _split(self, page_sets, rect):
-        if rect.width < rect.height:
+        if rect.width < rect.height * 1.6:
             self._split_page_sets_area(page_sets, rect, is_vertical=True)
         else:
             self._split_page_sets_area(page_sets, rect, is_vertical=False)
