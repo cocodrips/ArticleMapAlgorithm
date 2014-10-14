@@ -64,7 +64,7 @@ class PageUtilsTest(unittest.TestCase):
         for page in self.pure_page_set:
             page.ideal_area = pow(page.priority * 100, 2)
 
-        target = utils.get_optimum_set(self.pure_page_set, Rect(0, 0, 500, 300))
+        target = utils.get_optimal_set(self.pure_page_set, Rect(0, 0, 500, 300))
         self.assertEqual(target[0].priority, 4)
 
 

@@ -1,4 +1,6 @@
 from greedy_layout import GreedyLayout
+from model.rect import Rect
+from page_utils import PageUtils
 import unittest
 import os
 

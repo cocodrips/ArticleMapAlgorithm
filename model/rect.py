@@ -16,6 +16,10 @@ class Rect:
     def ratio(self):
         return self.width / float(self.height)
 
+    @property
+    def area(self):
+        return self.width * self.height
+
     def vec4(self):
         return (self.x, self.y, self.width, self.height)
 

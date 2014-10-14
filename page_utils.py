@@ -96,7 +96,7 @@ class PageUtils(object):
         return groups
 
     @classmethod
-    def get_optimum_set(cls, page_sets, rect):
+    def get_optimal_set(cls, page_sets, rect):
         # TODO:Refactoring
 
         s = rect.width * rect.height
