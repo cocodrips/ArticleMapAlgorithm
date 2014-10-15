@@ -25,6 +25,7 @@ class Display():
     def draw_rectangle(self, canvas, page):
         canvas.create_rectangle(page.rect.x, page.rect.y, page.rect.x + page.rect.width,
                                 page.rect.y + page.rect.height,
-                                outline="#555")
-        canvas.create_text(page.rect.x + page.rect.width / 2, page.rect.y + 10,
-                           text=str(page.original_priority))
+                                outline="#222", width=4.0
+        )
+        canvas.create_text(page.rect.x + page.rect.width / 2, page.rect.y + 24,
+                           text=str(page.original_priority), font=("Purisa", 32))

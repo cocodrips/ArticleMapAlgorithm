@@ -73,11 +73,14 @@ class PageUtils(object):
         return sum([cls.ideal_sum(page_set) for page_set in page_sets])
 
     @classmethod
-    def grouping(cls, page_sets, range=1.4):
+    def grouping(cls, page_sets, range=1.3):
         """
         Grouping only aa  list of page_sets
         """
-        groups = []
+        page_sets = page_sets[:]
+
+        top = page_sets.pop(0)
+        groups = [[top]]
 
         for rect_type in rect_types:
             target_sets = [page_set for page_set in page_sets if page_set.type == rect_type]
@@ -117,6 +120,21 @@ class PageUtils(object):
                 match = area_sum
 
         return optimum_set
+
+    @classmethod
+    def deform_priorities(cls, page_sets, area, min_width, min_height):
+        priority_sum = cls.sum(page_sets)
+        area_min = min_width * min_height
+        x = float(area / area_min) / priority_sum
+
+        for page_set in page_sets:
+            if cls.is_group(page_set):
+                for page in page_set:
+                    page.priority = int(math.ceil(x * page.priority))
+
+            else:
+                page_set.priority = int(math.ceil(x * page_set.priority))
+
 
 
 

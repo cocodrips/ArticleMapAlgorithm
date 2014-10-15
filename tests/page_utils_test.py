@@ -13,7 +13,6 @@ class PageUtilsTest(unittest.TestCase):
         self.page_set = self.generator.generate_from_jsonfile(self.path + '/sample/sample1.json')
         self.pure_page_set = self.generator.generate_from_jsonfile(self.path + '/sample/pure_sample0.json')
 
-
     def testSum(self):
         target = utils.sum(self.page_set)
         self.assertEqual(target, 34)
@@ -58,7 +57,7 @@ class PageUtilsTest(unittest.TestCase):
 
     def testGrouping(self):
         target = utils.grouping(self.pure_page_set)
-        self.assertEqual(target[1][1].priority, 4)
+        self.assertEqual(target[1][1].priority, 2)
 
     def testGetOptimumSet(self):
         for page in self.pure_page_set:
@@ -66,6 +65,11 @@ class PageUtilsTest(unittest.TestCase):
 
         target = utils.get_optimal_set(self.pure_page_set, Rect(0, 0, 500, 300))
         self.assertEqual(target[0].priority, 4)
+
+    def testDeformPriorities(self):
+        self.assertEqual(self.pure_page_set[0].priority, 10)
+        utils.deform_priorities(self.pure_page_set, 800 * 600, 200, 60)
+        self.assertEqual(self.pure_page_set[0].priority, 8)
 
 
 if __name__ == "__main__":

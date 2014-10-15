@@ -10,7 +10,7 @@ class Page:
         self.name = name
 
     def __repr__(self):
-        return unicode("<Page priority:{0}>".format(self.priority))
+        return unicode("<Page priority:{0}({1})>".format(self.original_priority, self.ideal_area))
 
     def __eq__(self, target):
         if isinstance(target, Page):
