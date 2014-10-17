@@ -7,7 +7,7 @@ import copy
 import math
 
 
-MIN_WIDTH = 100
+MIN_WIDTH = 200
 MIN_HEIGHT = 60
 
 
@@ -18,6 +18,7 @@ class GreedyLayout(Base):
         self._set_ideal_area(group_sets)
 
         PageUtils.sort(group_sets, reverse=True, key=lambda x: (PageUtils.sum(x) / PageUtils.num(x)))
+
         self._arrange(group_sets, Rect(0, 0, self.width, self.height))
 
     def _set_ideal_area(self, page_sets):
@@ -137,6 +138,8 @@ class GreedyLayout(Base):
         if parent_rect.width - top_rect.width < MIN_WIDTH:
             top_rect.width = parent_rect.width
             top_rect.height = int(ideal_area / top_rect.width)
+
+
 
         bottom_rect = self._bottom_rect(parent_rect, top_rect)
         diff, bottom_sets = self._diff_from_ideal_area(remaining_sets, bottom_rect)

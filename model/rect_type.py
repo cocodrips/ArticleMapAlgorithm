@@ -6,13 +6,14 @@ class RectType:
 
 rect_types = {
     'image': [
-        RectType(1.1, 1),
-        RectType(0.9, 2),
-        RectType(3.0, 2)
-        # RectType(0.8, 1),
+        RectType(0.9, 1),
+        RectType(1.6, 1),
+        RectType(3.0, 2),
+        RectType(3.8, 2)
     ],
     'text': [
-        RectType(1.2, 1),
-        RectType(3.0, 1)
+        RectType(1.0, 1),
+        RectType(3.8, 1),
+        RectType(5, 1)
     ]
 }

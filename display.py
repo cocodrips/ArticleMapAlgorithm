@@ -28,4 +28,4 @@ class Display():
                                 outline="#222", width=4.0
         )
         canvas.create_text(page.rect.x + page.rect.width / 2, page.rect.y + 24,
-                           text=str(page.original_priority), font=("Purisa", 32))
+                           text=str(page.original_priority), font=("Purisa", 42))

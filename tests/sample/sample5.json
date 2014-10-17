@@ -4,42 +4,37 @@
 
         {
             "name": "45",
-            "size": 10,
+            "size": 45,
             "type": "image"
         },
         {
             "name": "32",
-            "size": 9,
-            "type": "text"
+            "size": 32,
+            "type": "image"
         },
         {
             "name": "30",
-            "size": 8,
+            "size": 30,
             "type": "image"
         },
         {
             "name": "20",
-            "size": 7,
+            "size": 20,
             "type": "text"
         },
         {
             "name": "11",
-            "size": 6,
-            "type": "image"
+            "size": 11,
+            "type": "text"
         },
         {
             "name": "10",
-            "size": 5,
+            "size": 10,
             "type": "text"
         },
         {
             "name": "5",
-            "size": 4,
-            "type": "image"
-        },
-        {
-            "name": "2",
-            "size": 3,
+            "size": 5,
             "type": "text"
         },
         {
