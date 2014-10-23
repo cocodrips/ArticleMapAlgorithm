@@ -130,11 +130,7 @@ class PageUtils(object):
         for page_set in page_sets:
             if cls.is_group(page_set):
                 for page in page_set:
-                    page.priority = int(math.ceil(x * page.priority))
+                    page.priority = math.ceil(math.log((math.ceil(x * page.priority)), 2))
 
             else:
-                page_set.priority = int(math.ceil(x * page_set.priority))
-
-
-
-
+                page_set.priority = math.ceil(math.log((math.ceil(x * page_set.priority)), 2))
